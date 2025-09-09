@@ -1,0 +1,20 @@
+{
+  "name": "Burnout Guide - Resources for Recovery",
+  "short_name": "Burnout Guide",
+  "description": "Resources and support for recognizing and recovering from burnout",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2c3e50",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "medical", "lifestyle"],
+  "lang": "en-US"
+}

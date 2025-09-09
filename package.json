@@ -1,0 +1,12 @@
+{
+  "name": "burnout-guide-pwa",
+  "version": "1.0.0",
+  "description": "A PWA providing resources for recognizing and recovering from burnout",
+  "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "serve-node": "npx http-server -p 8000"
+  },
+  "keywords": ["pwa", "burnout", "mental-health", "wellness"],
+  "author": "",
+  "license": "MIT"
+}
