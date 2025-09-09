@@ -1,4 +1,4 @@
-const CACHE_NAME = 'burnout-guide-v2';
+const CACHE_NAME = 'burnout-guide-v3';
 const urlsToCache = [
   '/',
   '/index.html',

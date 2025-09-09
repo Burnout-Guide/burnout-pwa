@@ -11,34 +11,113 @@ if ('serviceWorker' in navigator) {
 }
 
 let deferredPrompt;
-const installBtn = document.getElementById('installBtn');
+let installPromptShown = false;
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+function isAndroid() {
+  return /Android/.test(navigator.userAgent);
+}
+
+function isMobileSafari() {
+  return isIOS() && /Safari/.test(navigator.userAgent) && !/CriOS|FxiOS|OPiOS|mercury/.test(navigator.userAgent);
+}
+
+function isInStandaloneMode() {
+  return window.matchMedia('(display-mode: standalone)').matches || 
+         window.navigator.standalone === true ||
+         document.referrer.includes('android-app://');
+}
+
+function showIOSInstallBanner() {
+  if (isMobileSafari() && !isInStandaloneMode()) {
+    const hasSeenBanner = localStorage.getItem('iosInstallBannerSeen');
+    const lastSeen = localStorage.getItem('iosInstallBannerLastSeen');
+    const now = Date.now();
+    const oneWeek = 7 * 24 * 60 * 60 * 1000;
+    
+    if (!hasSeenBanner || (lastSeen && now - parseInt(lastSeen) > oneWeek)) {
+      setTimeout(() => {
+        const banner = document.getElementById('iosInstallBanner');
+        if (banner) {
+          banner.style.display = 'block';
+          localStorage.setItem('iosInstallBannerLastSeen', now.toString());
+        }
+      }, 3000);
+    }
+  }
+}
+
+function showInstallPrompt() {
+  if (!isInStandaloneMode() && !installPromptShown) {
+    const installPrompt = document.getElementById('installPrompt');
+    if (installPrompt) {
+      setTimeout(() => {
+        installPrompt.style.display = 'block';
+        installPromptShown = true;
+      }, 5000);
+    }
+  }
+}
 
 window.addEventListener('beforeinstallprompt', (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  installBtn.style.display = 'block';
   
-  installBtn.addEventListener('click', () => {
-    installBtn.style.display = 'none';
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === 'accepted') {
-        console.log('User accepted the install prompt');
-      } else {
-        console.log('User dismissed the install prompt');
-      }
-      deferredPrompt = null;
-    });
-  });
+  const installBtn = document.getElementById('installBtn');
+  const installPromptBtn = document.getElementById('installPromptBtn');
+  
+  if (installBtn) {
+    installBtn.style.display = 'block';
+  }
+  
+  showInstallPrompt();
+  
+  const handleInstall = () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('User accepted the install prompt');
+        } else {
+          console.log('User dismissed the install prompt');
+        }
+        deferredPrompt = null;
+        
+        if (installBtn) installBtn.style.display = 'none';
+        const installPrompt = document.getElementById('installPrompt');
+        if (installPrompt) installPrompt.style.display = 'none';
+      });
+    }
+  };
+  
+  if (installBtn && !installBtn.hasAttribute('data-listener')) {
+    installBtn.addEventListener('click', handleInstall);
+    installBtn.setAttribute('data-listener', 'true');
+  }
+  
+  if (installPromptBtn && !installPromptBtn.hasAttribute('data-listener')) {
+    installPromptBtn.addEventListener('click', handleInstall);
+    installPromptBtn.setAttribute('data-listener', 'true');
+  }
 });
 
 window.addEventListener('appinstalled', () => {
   console.log('PWA was installed');
-  installBtn.style.display = 'none';
+  const installBtn = document.getElementById('installBtn');
+  const installPrompt = document.getElementById('installPrompt');
+  const iosInstallBanner = document.getElementById('iosInstallBanner');
+  
+  if (installBtn) installBtn.style.display = 'none';
+  if (installPrompt) installPrompt.style.display = 'none';
+  if (iosInstallBanner) iosInstallBanner.style.display = 'none';
+  
+  localStorage.setItem('pwaInstalled', 'true');
 });
 
-if (window.matchMedia('(display-mode: standalone)').matches || 
-    window.navigator.standalone === true) {
+if (isInStandaloneMode()) {
   console.log('App is running in standalone mode');
 }
 
@@ -114,6 +193,19 @@ function updateLanguage(lang) {
 
 document.addEventListener('DOMContentLoaded', () => {
   updateLanguage(currentLang);
+  
+  showIOSInstallBanner();
+  
+  const iosCloseBanner = document.querySelector('.close-banner');
+  if (iosCloseBanner) {
+    iosCloseBanner.addEventListener('click', () => {
+      const banner = document.getElementById('iosInstallBanner');
+      if (banner) {
+        banner.style.display = 'none';
+        localStorage.setItem('iosInstallBannerSeen', 'true');
+      }
+    });
+  }
   
   const langToggle = document.getElementById('langToggle');
   langToggle.addEventListener('click', () => {

@@ -100,6 +100,16 @@ const translations = {
     footer: {
       copyright: "© 2024 Burnout Guide. A resource for those in need.",
       crisis: "If you're in crisis, please reach out for help immediately."
+    },
+    
+    iosInstall: {
+      title: "Install Burnout Guide",
+      instructions: "Tap the share button below then \"Add to Home Screen\""
+    },
+    
+    install: {
+      prompt: "Get quick access to burnout resources anytime",
+      button: "Install Now"
     }
   },
   
@@ -204,6 +214,16 @@ const translations = {
     footer: {
       copyright: "© 2024 Руководство по Выгоранию. Ресурс для нуждающихся.",
       crisis: "Если вы находитесь в кризисе, пожалуйста, немедленно обратитесь за помощью."
+    },
+    
+    iosInstall: {
+      title: "Установить Руководство по Выгоранию",
+      instructions: "Нажмите кнопку «Поделиться» внизу, затем «На экран Домой»"
+    },
+    
+    install: {
+      prompt: "Получите быстрый доступ к ресурсам по выгоранию в любое время",
+      button: "Установить сейчас"
     }
   }
 };

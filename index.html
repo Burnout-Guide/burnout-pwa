@@ -2,17 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Resources and support for recognizing and recovering from burnout">
     <meta name="theme-color" content="#2c3e50">
+    
+    <!-- iOS specific PWA tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Burnout Guide">
+    <meta name="format-detection" content="telephone=no">
+    
     <title>Burnout Guide - Resources for Recovery</title>
     
     <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="icon.svg">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-startup-image" href="splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1668x2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
 </head>
 <body>
+    <!-- iOS Install Banner -->
+    <div id="iosInstallBanner" class="ios-install-banner" style="display: none;">
+        <button class="close-banner" aria-label="Close">×</button>
+        <div class="banner-content">
+            <h3 data-i18n="iosInstall.title">Install Burnout Guide</h3>
+            <p data-i18n="iosInstall.instructions">Tap <span class="share-icon">⎙</span> then "Add to Home Screen"</p>
+        </div>
+    </div>
+
     <header>
         <div class="container">
             <div class="header-controls">
@@ -26,6 +53,10 @@
             <button id="installBtn" class="install-btn" style="display: none;" data-i18n="installBtn">
                 Install App
             </button>
+            <div id="installPrompt" class="install-prompt" style="display: none;">
+                <p data-i18n="install.prompt">Get quick access to burnout resources anytime</p>
+                <button id="installPromptBtn" class="install-btn" data-i18n="install.button">Install Now</button>
+            </div>
         </div>
     </header>
 
