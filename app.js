@@ -4,7 +4,7 @@
   
   // Register service worker
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js').catch(console.error);
+    navigator.serviceWorker.register('./service-worker.js').catch(console.error);
   }
   
   // Get saved language or default to English

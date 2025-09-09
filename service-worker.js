@@ -1,14 +1,14 @@
-const CACHE_NAME = 'burnout-guide-v4';
+const CACHE_NAME = 'burnout-guide-v5';
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/styles.css',
-  '/app.js',
-  '/manifest.json',
-  '/icon.svg',
-  '/apple-touch-icon.png',
-  '/icon-192.png',
-  '/icon-512.png'
+  './',
+  './index.html',
+  './styles.css',
+  './app.js',
+  './manifest.json',
+  './icon.svg',
+  './apple-touch-icon.png',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
 self.addEventListener('install', event => {
@@ -58,7 +58,14 @@ self.addEventListener('fetch', event => {
         });
       })
       .catch(() => {
-        return caches.match('/index.html');
+        // Return index.html for navigation requests
+        if (event.request.mode === 'navigate') {
+          return caches.match('./index.html');
+        }
+        return new Response('Network error', {
+          status: 408,
+          headers: { 'Content-Type': 'text/plain' }
+        });
       })
   );
 });
