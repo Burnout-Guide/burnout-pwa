@@ -13,6 +13,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -21,12 +23,17 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   position: relative;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  padding-left: env(safe-area-inset-left, 20px);
+  padding-right: env(safe-area-inset-right, 20px);
 }
 
 /* Language Switcher */
@@ -108,8 +115,10 @@ body {
 /* Header */
 header {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: -webkit-linear-gradient(315deg, var(--primary-color), var(--secondary-color));
   color: white;
   padding: 3rem 0 2rem;
+  padding-top: calc(3rem + env(safe-area-inset-top, 0));
   text-align: center;
   box-shadow: var(--shadow);
 }
@@ -136,7 +145,11 @@ header h1 {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
   margin-top: 1rem;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .install-btn:hover {
@@ -185,6 +198,7 @@ section {
 
 .card-grid {
   display: grid;
+  display: -webkit-grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
@@ -196,10 +210,14 @@ section {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transition: -webkit-transform 0.3s ease, box-shadow 0.3s ease;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .card:hover {
   transform: translateY(-5px);
+  -webkit-transform: translateY(-5px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -242,6 +260,7 @@ section {
 
 .cta {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: -webkit-linear-gradient(315deg, #667eea 0%, #764ba2 100%);
   color: white;
   padding: 3rem 2rem;
   border-radius: var(--radius);
@@ -268,6 +287,7 @@ footer {
   color: white;
   text-align: center;
   padding: 2rem 0;
+  padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0));
   margin-top: 4rem;
 }
 
