@@ -1,12 +1,14 @@
-const CACHE_NAME = 'burnout-guide-v3';
+const CACHE_NAME = 'burnout-guide-v4';
 const urlsToCache = [
   '/',
   '/index.html',
   '/styles.css',
   '/app.js',
-  '/translations.js',
   '/manifest.json',
-  '/icon.svg'
+  '/icon.svg',
+  '/apple-touch-icon.png',
+  '/icon-192.png',
+  '/icon-512.png'
 ];
 
 self.addEventListener('install', event => {

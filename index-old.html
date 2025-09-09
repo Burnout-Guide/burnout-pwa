@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Resources and support for recognizing and recovering from burnout">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <!-- iOS specific PWA tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Burnout Guide">
+    <meta name="format-detection" content="telephone=no">
+    
+    <title>Burnout Guide - Resources for Recovery</title>
+    
+    <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    
+    <!-- iOS Splash Screens -->
+    <link rel="apple-touch-startup-image" href="splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1668x2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+</head>
+<body>
+    <!-- iOS Install Banner -->
+    <div id="iosInstallBanner" class="ios-install-banner" style="display: none;">
+        <button class="close-banner" aria-label="Close">×</button>
+        <div class="banner-content">
+            <h3 data-i18n="iosInstall.title">Install Burnout Guide</h3>
+            <p data-i18n="iosInstall.instructions">Tap <span class="share-icon">⎙</span> then "Add to Home Screen"</p>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-controls">
+                <button id="langToggle" class="lang-toggle" aria-label="Toggle language">
+                    <span class="lang-flag">🇺🇸</span>
+                    <span class="lang-text">EN</span>
+                </button>
+            </div>
+            <h1 data-i18n="title">Burnout Guide</h1>
+            <p class="tagline" data-i18n="tagline">Resources for recognizing and recovering from burnout</p>
+            <button id="installBtn" class="install-btn" style="display: none;" data-i18n="installBtn">
+                Install App
+            </button>
+            <div id="installPrompt" class="install-prompt" style="display: none;">
+                <p data-i18n="install.prompt">Get quick access to burnout resources anytime</p>
+                <button id="installPromptBtn" class="install-btn" data-i18n="install.button">Install Now</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h2 data-i18n="hero.title">You're Not Alone</h2>
+            <p data-i18n="hero.description">Burnout is a state of emotional, physical, and mental exhaustion caused by prolonged stress. It's more common than you think, and recovery is possible.</p>
+        </section>
+
+        <section class="resources">
+            <h2 data-i18n="understanding.title">Understanding Burnout</h2>
+            
+            <div class="card-grid">
+                <article class="card">
+                    <h3 data-i18n="understanding.signs.title">Signs & Symptoms</h3>
+                    <ul>
+                        <li data-i18n="understanding.signs.1">Chronic exhaustion and fatigue</li>
+                        <li data-i18n="understanding.signs.2">Cynicism and detachment</li>
+                        <li data-i18n="understanding.signs.3">Feelings of ineffectiveness</li>
+                        <li data-i18n="understanding.signs.4">Lack of accomplishment</li>
+                        <li data-i18n="understanding.signs.5">Physical symptoms (headaches, insomnia)</li>
+                        <li data-i18n="understanding.signs.6">Difficulty concentrating</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3 data-i18n="understanding.causes.title">Common Causes</h3>
+                    <ul>
+                        <li data-i18n="understanding.causes.1">Work overload</li>
+                        <li data-i18n="understanding.causes.2">Lack of control</li>
+                        <li data-i18n="understanding.causes.3">Insufficient rewards</li>
+                        <li data-i18n="understanding.causes.4">Breakdown of community</li>
+                        <li data-i18n="understanding.causes.5">Absence of fairness</li>
+                        <li data-i18n="understanding.causes.6">Value conflicts</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3 data-i18n="understanding.recovery.title">Recovery Steps</h3>
+                    <ul>
+                        <li data-i18n="understanding.recovery.1">Acknowledge the burnout</li>
+                        <li data-i18n="understanding.recovery.2">Set boundaries</li>
+                        <li data-i18n="understanding.recovery.3">Prioritize self-care</li>
+                        <li data-i18n="understanding.recovery.4">Seek support</li>
+                        <li data-i18n="understanding.recovery.5">Consider professional help</li>
+                        <li data-i18n="understanding.recovery.6">Make gradual changes</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="resources">
+            <h2 data-i18n="selfcare.title">Self-Care Strategies</h2>
+            
+            <div class="card-grid">
+                <article class="card">
+                    <h3 data-i18n="selfcare.physical.title">Physical Well-being</h3>
+                    <ul>
+                        <li data-i18n="selfcare.physical.1">Regular sleep schedule (7-9 hours)</li>
+                        <li data-i18n="selfcare.physical.2">Nutritious meals</li>
+                        <li data-i18n="selfcare.physical.3">Regular exercise</li>
+                        <li data-i18n="selfcare.physical.4">Time in nature</li>
+                        <li data-i18n="selfcare.physical.5">Breathing exercises</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3 data-i18n="selfcare.mental.title">Mental Health</h3>
+                    <ul>
+                        <li data-i18n="selfcare.mental.1">Mindfulness meditation</li>
+                        <li data-i18n="selfcare.mental.2">Journaling</li>
+                        <li data-i18n="selfcare.mental.3">Therapy or counseling</li>
+                        <li data-i18n="selfcare.mental.4">Support groups</li>
+                        <li data-i18n="selfcare.mental.5">Digital detox periods</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3 data-i18n="selfcare.balance.title">Work-Life Balance</h3>
+                    <ul>
+                        <li data-i18n="selfcare.balance.1">Clear work boundaries</li>
+                        <li data-i18n="selfcare.balance.2">Regular breaks</li>
+                        <li data-i18n="selfcare.balance.3">Learn to say "no"</li>
+                        <li data-i18n="selfcare.balance.4">Delegate when possible</li>
+                        <li data-i18n="selfcare.balance.5">Pursue hobbies</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="resources">
+            <h2 data-i18n="professional.title">Professional Resources</h2>
+            
+            <div class="card-grid">
+                <article class="card">
+                    <h3 data-i18n="professional.when.title">When to Seek Help</h3>
+                    <p data-i18n="professional.when.intro">Consider professional support if you experience:</p>
+                    <ul>
+                        <li data-i18n="professional.when.1">Persistent feelings of hopelessness</li>
+                        <li data-i18n="professional.when.2">Inability to perform daily tasks</li>
+                        <li data-i18n="professional.when.3">Substance use concerns</li>
+                        <li data-i18n="professional.when.4">Thoughts of self-harm</li>
+                        <li data-i18n="professional.when.5">Physical health impacts</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3 data-i18n="professional.crisis.title">Crisis Resources</h3>
+                    <ul>
+                        <li><strong>988 Suicide & Crisis Lifeline</strong><br>Call or text 988 (US)</li>
+                        <li><strong>Crisis Text Line</strong><br>Text HOME to 741741</li>
+                        <li><strong>International Crisis Lines</strong><br>findahelpline.com</li>
+                    </ul>
+                </article>
+
+                <article class="card">
+                    <h3 data-i18n="professional.support.title">Finding Support</h3>
+                    <ul>
+                        <li data-i18n="professional.support.1">Talk to your primary care provider</li>
+                        <li data-i18n="professional.support.2">Employee Assistance Programs (EAP)</li>
+                        <li data-i18n="professional.support.3">Mental health apps and teletherapy</li>
+                        <li data-i18n="professional.support.4">Local mental health services</li>
+                        <li data-i18n="professional.support.5">Online support communities</li>
+                        <li><strong>Colorado residents:</strong><br><a href="https://www.yourwavecounseling.com/" target="_blank" rel="noopener">Your Wave Counseling</a></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="cta">
+            <h2 data-i18n="cta.title">Remember</h2>
+            <p class="emphasis" data-i18n="cta.message">Recovery from burnout is a journey, not a destination. Be patient with yourself and celebrate small victories along the way.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p data-i18n="footer.copyright">&copy; 2024 Burnout Guide. A resource for those in need.</p>
+            <p><small data-i18n="footer.crisis">If you're in crisis, please reach out for help immediately.</small></p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

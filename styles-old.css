@@ -20,7 +20,6 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--bg-color);
-  position: relative;
 }
 
 .container {
@@ -29,89 +28,58 @@ body {
   padding: 0 20px;
 }
 
-/* Language Switcher */
-.lang-switcher {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 1000;
-  display: flex;
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-}
-
-.lang-btn {
-  padding: 10px 20px;
-  border: none;
-  background: white;
-  color: var(--text-color);
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
-
-.lang-btn:first-child {
-  border-right: 1px solid #ddd;
-}
-
-.lang-btn.active {
-  background: var(--primary-color);
-  color: white;
-}
-
-.lang-btn:not(.active):hover {
-  background: #f0f0f0;
-}
-
-/* Install Prompts */
-.install-ios {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  z-index: 999;
-  animation: slideUp 0.3s ease;
-}
-
-.close-prompt {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  line-height: 1;
-  opacity: 0.8;
-}
-
-.close-prompt:hover {
-  opacity: 1;
-}
-
-@keyframes slideUp {
-  from { transform: translateY(100%); }
-  to { transform: translateY(0); }
-}
-
-/* Header */
 header {
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
-  padding: 3rem 0 2rem;
+  padding: 2rem 0;
   text-align: center;
   box-shadow: var(--shadow);
+  position: relative;
+}
+
+.header-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.lang-toggle {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.lang-toggle:hover,
+.lang-toggle:active,
+.lang-toggle:focus {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.lang-toggle:active {
+  transform: translateY(0);
+}
+
+.lang-flag {
+  font-size: 1.2rem;
+}
+
+.lang-text {
+  font-weight: 600;
 }
 
 header h1 {
@@ -145,7 +113,6 @@ header h1 {
   box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
 }
 
-/* Main Content */
 main {
   padding: 3rem 0;
 }
@@ -233,6 +200,7 @@ section {
   color: var(--secondary-color);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .card a:hover {
@@ -262,7 +230,6 @@ section {
   line-height: 1.8;
 }
 
-/* Footer */
 footer {
   background-color: var(--primary-color);
   color: white;
@@ -279,20 +246,83 @@ footer small {
   opacity: 0.8;
 }
 
-/* Responsive Design */
+.ios-install-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 1rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.close-banner {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.close-banner:hover {
+  opacity: 1;
+}
+
+.banner-content h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.banner-content p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.share-icon {
+  display: inline-block;
+  padding: 0 0.25rem;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+.install-prompt {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.install-prompt p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
-  .lang-switcher {
-    top: 0.5rem;
-    right: 0.5rem;
-  }
-  
-  .lang-btn {
-    padding: 8px 16px;
-    font-size: 0.9rem;
-  }
-  
-  header {
-    padding-top: 4rem;
+  .header-controls {
+    position: static;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
   }
   
   header h1 {
@@ -356,30 +386,12 @@ footer small {
   }
 }
 
-/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #e0e0e0;
     --bg-color: #1a1a1a;
     --card-bg: #2d2d2d;
     --shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .lang-switcher {
-    background: #2d2d2d;
-  }
-  
-  .lang-btn {
-    background: #2d2d2d;
-    color: #e0e0e0;
-  }
-  
-  .lang-btn:first-child {
-    border-right-color: #444;
-  }
-  
-  .lang-btn:not(.active):hover {
-    background: #383838;
   }
   
   .hero p,
@@ -394,7 +406,6 @@ footer small {
   }
 }
 
-/* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;

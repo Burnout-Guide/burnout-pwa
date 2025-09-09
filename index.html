@@ -15,191 +15,190 @@
     <title>Burnout Guide - Resources for Recovery</title>
     
     <link rel="manifest" href="/manifest.json">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
     <link rel="icon" href="icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    
-    <!-- iOS Splash Screens -->
-    <link rel="apple-touch-startup-image" href="splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)">
-    <link rel="apple-touch-startup-image" href="splash-1668x2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)">
-    <link rel="apple-touch-startup-image" href="splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)">
-    <link rel="apple-touch-startup-image" href="splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
-    <link rel="apple-touch-startup-image" href="splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)">
-    <link rel="apple-touch-startup-image" href="splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)">
-    <link rel="apple-touch-startup-image" href="splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
-    <link rel="apple-touch-startup-image" href="splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
-    <link rel="apple-touch-startup-image" href="splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
 </head>
-<body>
-    <!-- iOS Install Banner -->
-    <div id="iosInstallBanner" class="ios-install-banner" style="display: none;">
-        <button class="close-banner" aria-label="Close">×</button>
-        <div class="banner-content">
-            <h3 data-i18n="iosInstall.title">Install Burnout Guide</h3>
-            <p data-i18n="iosInstall.instructions">Tap <span class="share-icon">⎙</span> then "Add to Home Screen"</p>
-        </div>
+<body data-lang="en">
+    <!-- Language Toggle -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="en" aria-label="English">
+            EN
+        </button>
+        <button class="lang-btn" data-lang="ru" aria-label="Русский">
+            RU
+        </button>
+    </div>
+
+    <!-- iOS Install Prompt -->
+    <div class="install-ios" style="display: none;">
+        <button class="close-prompt">×</button>
+        <div class="lang-content" data-en="Install this app: tap ⎙ then 'Add to Home Screen'" 
+             data-ru="Установить приложение: нажмите ⎙ затем 'На экран Домой'"></div>
     </div>
 
     <header>
         <div class="container">
-            <div class="header-controls">
-                <button id="langToggle" class="lang-toggle" aria-label="Toggle language">
-                    <span class="lang-flag">🇺🇸</span>
-                    <span class="lang-text">EN</span>
-                </button>
-            </div>
-            <h1 data-i18n="title">Burnout Guide</h1>
-            <p class="tagline" data-i18n="tagline">Resources for recognizing and recovering from burnout</p>
-            <button id="installBtn" class="install-btn" style="display: none;" data-i18n="installBtn">
-                Install App
+            <h1 class="lang-content" data-en="Burnout Guide" data-ru="Руководство по Выгоранию"></h1>
+            <p class="tagline lang-content" 
+               data-en="Resources for recognizing and recovering from burnout"
+               data-ru="Ресурсы для распознавания и восстановления от выгорания"></p>
+            <button id="installBtn" class="install-btn" style="display: none;">
+                <span class="lang-content" data-en="Install App" data-ru="Установить"></span>
             </button>
-            <div id="installPrompt" class="install-prompt" style="display: none;">
-                <p data-i18n="install.prompt">Get quick access to burnout resources anytime</p>
-                <button id="installPromptBtn" class="install-btn" data-i18n="install.button">Install Now</button>
-            </div>
         </div>
     </header>
 
     <main class="container">
         <section class="hero">
-            <h2 data-i18n="hero.title">You're Not Alone</h2>
-            <p data-i18n="hero.description">Burnout is a state of emotional, physical, and mental exhaustion caused by prolonged stress. It's more common than you think, and recovery is possible.</p>
+            <h2 class="lang-content" data-en="You're Not Alone" data-ru="Вы не одиноки"></h2>
+            <p class="lang-content" 
+               data-en="Burnout is a state of emotional, physical, and mental exhaustion caused by prolonged stress. It's more common than you think, and recovery is possible."
+               data-ru="Выгорание - это состояние эмоционального, физического и умственного истощения, вызванное длительным стрессом. Это встречается чаще, чем вы думаете, и восстановление возможно."></p>
         </section>
 
         <section class="resources">
-            <h2 data-i18n="understanding.title">Understanding Burnout</h2>
+            <h2 class="lang-content" data-en="Understanding Burnout" data-ru="Понимание выгорания"></h2>
             
             <div class="card-grid">
                 <article class="card">
-                    <h3 data-i18n="understanding.signs.title">Signs & Symptoms</h3>
+                    <h3 class="lang-content" data-en="Signs & Symptoms" data-ru="Признаки и симптомы"></h3>
                     <ul>
-                        <li data-i18n="understanding.signs.1">Chronic exhaustion and fatigue</li>
-                        <li data-i18n="understanding.signs.2">Cynicism and detachment</li>
-                        <li data-i18n="understanding.signs.3">Feelings of ineffectiveness</li>
-                        <li data-i18n="understanding.signs.4">Lack of accomplishment</li>
-                        <li data-i18n="understanding.signs.5">Physical symptoms (headaches, insomnia)</li>
-                        <li data-i18n="understanding.signs.6">Difficulty concentrating</li>
+                        <li class="lang-content" data-en="Chronic exhaustion and fatigue" data-ru="Хроническое истощение и усталость"></li>
+                        <li class="lang-content" data-en="Cynicism and detachment" data-ru="Цинизм и отстранённость"></li>
+                        <li class="lang-content" data-en="Feelings of ineffectiveness" data-ru="Чувство неэффективности"></li>
+                        <li class="lang-content" data-en="Lack of accomplishment" data-ru="Отсутствие чувства достижения"></li>
+                        <li class="lang-content" data-en="Physical symptoms (headaches, insomnia)" data-ru="Физические симптомы (головные боли, бессонница)"></li>
+                        <li class="lang-content" data-en="Difficulty concentrating" data-ru="Трудности с концентрацией"></li>
                     </ul>
                 </article>
 
                 <article class="card">
-                    <h3 data-i18n="understanding.causes.title">Common Causes</h3>
+                    <h3 class="lang-content" data-en="Common Causes" data-ru="Распространённые причины"></h3>
                     <ul>
-                        <li data-i18n="understanding.causes.1">Work overload</li>
-                        <li data-i18n="understanding.causes.2">Lack of control</li>
-                        <li data-i18n="understanding.causes.3">Insufficient rewards</li>
-                        <li data-i18n="understanding.causes.4">Breakdown of community</li>
-                        <li data-i18n="understanding.causes.5">Absence of fairness</li>
-                        <li data-i18n="understanding.causes.6">Value conflicts</li>
+                        <li class="lang-content" data-en="Work overload" data-ru="Перегрузка работой"></li>
+                        <li class="lang-content" data-en="Lack of control" data-ru="Отсутствие контроля"></li>
+                        <li class="lang-content" data-en="Insufficient rewards" data-ru="Недостаточное вознаграждение"></li>
+                        <li class="lang-content" data-en="Breakdown of community" data-ru="Разрушение сообщества"></li>
+                        <li class="lang-content" data-en="Absence of fairness" data-ru="Отсутствие справедливости"></li>
+                        <li class="lang-content" data-en="Value conflicts" data-ru="Конфликт ценностей"></li>
                     </ul>
                 </article>
 
                 <article class="card">
-                    <h3 data-i18n="understanding.recovery.title">Recovery Steps</h3>
+                    <h3 class="lang-content" data-en="Recovery Steps" data-ru="Шаги к восстановлению"></h3>
                     <ul>
-                        <li data-i18n="understanding.recovery.1">Acknowledge the burnout</li>
-                        <li data-i18n="understanding.recovery.2">Set boundaries</li>
-                        <li data-i18n="understanding.recovery.3">Prioritize self-care</li>
-                        <li data-i18n="understanding.recovery.4">Seek support</li>
-                        <li data-i18n="understanding.recovery.5">Consider professional help</li>
-                        <li data-i18n="understanding.recovery.6">Make gradual changes</li>
+                        <li class="lang-content" data-en="Acknowledge the burnout" data-ru="Признайте выгорание"></li>
+                        <li class="lang-content" data-en="Set boundaries" data-ru="Установите границы"></li>
+                        <li class="lang-content" data-en="Prioritize self-care" data-ru="Приоритизируйте заботу о себе"></li>
+                        <li class="lang-content" data-en="Seek support" data-ru="Ищите поддержку"></li>
+                        <li class="lang-content" data-en="Consider professional help" data-ru="Рассмотрите профессиональную помощь"></li>
+                        <li class="lang-content" data-en="Make gradual changes" data-ru="Вносите постепенные изменения"></li>
                     </ul>
                 </article>
             </div>
         </section>
 
         <section class="resources">
-            <h2 data-i18n="selfcare.title">Self-Care Strategies</h2>
+            <h2 class="lang-content" data-en="Self-Care Strategies" data-ru="Стратегии самопомощи"></h2>
             
             <div class="card-grid">
                 <article class="card">
-                    <h3 data-i18n="selfcare.physical.title">Physical Well-being</h3>
+                    <h3 class="lang-content" data-en="Physical Well-being" data-ru="Физическое благополучие"></h3>
                     <ul>
-                        <li data-i18n="selfcare.physical.1">Regular sleep schedule (7-9 hours)</li>
-                        <li data-i18n="selfcare.physical.2">Nutritious meals</li>
-                        <li data-i18n="selfcare.physical.3">Regular exercise</li>
-                        <li data-i18n="selfcare.physical.4">Time in nature</li>
-                        <li data-i18n="selfcare.physical.5">Breathing exercises</li>
+                        <li class="lang-content" data-en="Regular sleep schedule (7-9 hours)" data-ru="Регулярный график сна (7-9 часов)"></li>
+                        <li class="lang-content" data-en="Nutritious meals" data-ru="Питательная еда"></li>
+                        <li class="lang-content" data-en="Regular exercise" data-ru="Регулярные упражнения"></li>
+                        <li class="lang-content" data-en="Time in nature" data-ru="Время на природе"></li>
+                        <li class="lang-content" data-en="Breathing exercises" data-ru="Дыхательные упражнения"></li>
                     </ul>
                 </article>
 
                 <article class="card">
-                    <h3 data-i18n="selfcare.mental.title">Mental Health</h3>
+                    <h3 class="lang-content" data-en="Mental Health" data-ru="Психическое здоровье"></h3>
                     <ul>
-                        <li data-i18n="selfcare.mental.1">Mindfulness meditation</li>
-                        <li data-i18n="selfcare.mental.2">Journaling</li>
-                        <li data-i18n="selfcare.mental.3">Therapy or counseling</li>
-                        <li data-i18n="selfcare.mental.4">Support groups</li>
-                        <li data-i18n="selfcare.mental.5">Digital detox periods</li>
+                        <li class="lang-content" data-en="Mindfulness meditation" data-ru="Медитация осознанности"></li>
+                        <li class="lang-content" data-en="Journaling" data-ru="Ведение дневника"></li>
+                        <li class="lang-content" data-en="Therapy or counseling" data-ru="Терапия или консультирование"></li>
+                        <li class="lang-content" data-en="Support groups" data-ru="Группы поддержки"></li>
+                        <li class="lang-content" data-en="Digital detox periods" data-ru="Периоды цифровой детоксикации"></li>
                     </ul>
                 </article>
 
                 <article class="card">
-                    <h3 data-i18n="selfcare.balance.title">Work-Life Balance</h3>
+                    <h3 class="lang-content" data-en="Work-Life Balance" data-ru="Баланс работы и жизни"></h3>
                     <ul>
-                        <li data-i18n="selfcare.balance.1">Clear work boundaries</li>
-                        <li data-i18n="selfcare.balance.2">Regular breaks</li>
-                        <li data-i18n="selfcare.balance.3">Learn to say "no"</li>
-                        <li data-i18n="selfcare.balance.4">Delegate when possible</li>
-                        <li data-i18n="selfcare.balance.5">Pursue hobbies</li>
+                        <li class="lang-content" data-en="Clear work boundaries" data-ru="Чёткие рабочие границы"></li>
+                        <li class="lang-content" data-en="Regular breaks" data-ru="Регулярные перерывы"></li>
+                        <li class="lang-content" data-en="Learn to say 'no'" data-ru="Научитесь говорить «нет»"></li>
+                        <li class="lang-content" data-en="Delegate when possible" data-ru="Делегируйте, когда возможно"></li>
+                        <li class="lang-content" data-en="Pursue hobbies" data-ru="Занимайтесь хобби"></li>
                     </ul>
                 </article>
             </div>
         </section>
 
         <section class="resources">
-            <h2 data-i18n="professional.title">Professional Resources</h2>
+            <h2 class="lang-content" data-en="Professional Resources" data-ru="Профессиональные ресурсы"></h2>
             
             <div class="card-grid">
                 <article class="card">
-                    <h3 data-i18n="professional.when.title">When to Seek Help</h3>
-                    <p data-i18n="professional.when.intro">Consider professional support if you experience:</p>
+                    <h3 class="lang-content" data-en="When to Seek Help" data-ru="Когда обращаться за помощью"></h3>
+                    <p class="lang-content" 
+                       data-en="Consider professional support if you experience:"
+                       data-ru="Рассмотрите профессиональную поддержку, если вы испытываете:"></p>
                     <ul>
-                        <li data-i18n="professional.when.1">Persistent feelings of hopelessness</li>
-                        <li data-i18n="professional.when.2">Inability to perform daily tasks</li>
-                        <li data-i18n="professional.when.3">Substance use concerns</li>
-                        <li data-i18n="professional.when.4">Thoughts of self-harm</li>
-                        <li data-i18n="professional.when.5">Physical health impacts</li>
+                        <li class="lang-content" data-en="Persistent feelings of hopelessness" data-ru="Постоянное чувство безнадёжности"></li>
+                        <li class="lang-content" data-en="Inability to perform daily tasks" data-ru="Неспособность выполнять повседневные задачи"></li>
+                        <li class="lang-content" data-en="Substance use concerns" data-ru="Проблемы с употреблением веществ"></li>
+                        <li class="lang-content" data-en="Thoughts of self-harm" data-ru="Мысли о самоповреждении"></li>
+                        <li class="lang-content" data-en="Physical health impacts" data-ru="Влияние на физическое здоровье"></li>
                     </ul>
                 </article>
 
                 <article class="card">
-                    <h3 data-i18n="professional.crisis.title">Crisis Resources</h3>
-                    <ul>
-                        <li><strong>988 Suicide & Crisis Lifeline</strong><br>Call or text 988 (US)</li>
-                        <li><strong>Crisis Text Line</strong><br>Text HOME to 741741</li>
-                        <li><strong>International Crisis Lines</strong><br>findahelpline.com</li>
+                    <h3 class="lang-content" data-en="Crisis Resources" data-ru="Кризисные ресурсы"></h3>
+                    <ul class="crisis-list">
+                        <!-- Will be populated by JavaScript based on language -->
                     </ul>
                 </article>
 
                 <article class="card">
-                    <h3 data-i18n="professional.support.title">Finding Support</h3>
+                    <h3 class="lang-content" data-en="Finding Support" data-ru="Поиск поддержки"></h3>
                     <ul>
-                        <li data-i18n="professional.support.1">Talk to your primary care provider</li>
-                        <li data-i18n="professional.support.2">Employee Assistance Programs (EAP)</li>
-                        <li data-i18n="professional.support.3">Mental health apps and teletherapy</li>
-                        <li data-i18n="professional.support.4">Local mental health services</li>
-                        <li data-i18n="professional.support.5">Online support communities</li>
-                        <li><strong>Colorado residents:</strong><br><a href="https://www.yourwavecounseling.com/" target="_blank" rel="noopener">Your Wave Counseling</a></li>
+                        <li class="lang-content" data-en="Talk to your primary care provider" data-ru="Поговорите со своим лечащим врачом"></li>
+                        <li class="lang-content" data-en="Employee Assistance Programs (EAP)" data-ru="Программы помощи сотрудникам (EAP)"></li>
+                        <li class="lang-content" data-en="Mental health apps and teletherapy" data-ru="Приложения для психического здоровья и телетерапия"></li>
+                        <li class="lang-content" data-en="Local mental health services" data-ru="Местные службы психического здоровья"></li>
+                        <li class="lang-content" data-en="Online support communities" data-ru="Онлайн-сообщества поддержки"></li>
+                        <li class="colorado-resource">
+                            <strong class="lang-content" data-en="Colorado residents:" data-ru="Жители Колорадо:"></strong><br>
+                            <a href="https://www.yourwavecounseling.com/" target="_blank" rel="noopener">Your Wave Counseling</a>
+                        </li>
                     </ul>
                 </article>
             </div>
         </section>
 
         <section class="cta">
-            <h2 data-i18n="cta.title">Remember</h2>
-            <p class="emphasis" data-i18n="cta.message">Recovery from burnout is a journey, not a destination. Be patient with yourself and celebrate small victories along the way.</p>
+            <h2 class="lang-content" data-en="Remember" data-ru="Помните"></h2>
+            <p class="emphasis lang-content" 
+               data-en="Recovery from burnout is a journey, not a destination. Be patient with yourself and celebrate small victories along the way."
+               data-ru="Восстановление от выгорания - это путешествие, а не пункт назначения. Будьте терпеливы к себе и празднуйте маленькие победы на этом пути."></p>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p data-i18n="footer.copyright">&copy; 2024 Burnout Guide. A resource for those in need.</p>
-            <p><small data-i18n="footer.crisis">If you're in crisis, please reach out for help immediately.</small></p>
+            <p class="lang-content" 
+               data-en="© 2024 Burnout Guide. A resource for those in need."
+               data-ru="© 2024 Руководство по Выгоранию. Ресурс для нуждающихся."></p>
+            <p><small class="lang-content" 
+                     data-en="If you're in crisis, please reach out for help immediately."
+                     data-ru="Если вы находитесь в кризисе, пожалуйста, немедленно обратитесь за помощью."></small></p>
         </div>
     </footer>
 
-    <script src="translations.js"></script>
-    <script src="app.js"></script>
+    <script src="app2.js"></script>
 </body>
 </html>
