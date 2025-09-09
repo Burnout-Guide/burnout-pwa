@@ -1,9 +1,10 @@
-const CACHE_NAME = 'burnout-guide-v1';
+const CACHE_NAME = 'burnout-guide-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/styles.css',
   '/app.js',
+  '/translations.js',
   '/manifest.json',
   '/icon.svg'
 ];
